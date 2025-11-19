@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Salón de Belleza{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Bienvenida a nuestro Salón de Belleza</h1>
+    <p class="lead">Tu lugar para relajarte, renovarte y resaltar tu belleza.</p>
+    <a href="{% url 'crear_reserva' %}" class="btn btn-primary btn-lg mt-3">Reservar un Turno</a>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <h2>Cortes y Peinados</h2>
+        <p>Estilos modernos y clásicos para renovar tu look. Nuestros estilistas te asesorarán para encontrar el corte perfecto para ti.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Manicura y Pedicura</h2>
+        <p>Cuidado completo para tus manos y pies. Ofrecemos esmaltado tradicional, semipermanente y diseños personalizados.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Tratamientos Faciales</h2>
+        <p>Relájate con nuestros tratamientos faciales. Limpieza profunda, hidratación y máscaras para una piel radiante.</p>
+    </div>
+</div>
+{% endblock %}
