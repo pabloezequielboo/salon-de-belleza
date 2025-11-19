@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Servicios - Salón de Belleza{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Nuestros Servicios</h1>
+    <p class="lead">A continuación se muestran los servicios disponibles (datos desde la base de datos).</p>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        {% if servicios %}
+            {% for s in servicios %}
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-capitalize">{{ s.nombre }}</h5>
+                            <p class="card-text">Duración: {{ s.duracion_minutos }} minutos</p>
+                            {% if s.precio %}
+                                <p class="card-text">Precio: ${{ s.precio }}</p>
+                            {% endif %}
+                            {% if s.descripcion %}
+                                <p class="card-text small text-muted mt-auto">{{ s.descripcion }}</p>
+                            {% endif %}
+                        </div>
+                        <div class="card-footer bg-transparent d-flex justify-content-center">
+                            <a href="{% url 'crear_reserva' %}?servicio={{ s.id }}" class="btn btn-primary">Reservar ahora</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <p>No hay servicios registrados todavía. Puedes añadirlos desde el panel de administración.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
